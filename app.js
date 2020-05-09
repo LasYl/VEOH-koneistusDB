@@ -46,7 +46,7 @@ app.put("/api/machining-parameter-set:id", machining_controller.api_put_machinin
 
 
 //DELETE
-app.delete("/api/machining-parameter-set:id", machining_controller.api_get_machinings)//Poisto mongosta
+app.delete("/api/machining-parameter-set:id", machining_controller.api_delete_machining)//Poisto mongosta
 
 //Vaihdetaan vain databasen
 //const database_url = "mongodb+srv://server:YoPkSBnxekTpsCE3@cluster0-fanmv.mongodb.net/koneistusdb?retryWrites=true&w=majority"

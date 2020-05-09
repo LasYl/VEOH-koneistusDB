@@ -88,6 +88,7 @@ const api_put_machining = (req, res, next) => {
 
 const api_delete_machining = (req, res, next) => {
     // haetaan IDksi kyseinen id mongosta
+    console.log("poisto alkoi")
     let id = req.params.id;
     machining_model.findByIdAndRemove(id).then(()=>{
         res.send();
