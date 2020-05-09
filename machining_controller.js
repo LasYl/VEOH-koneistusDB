@@ -72,9 +72,10 @@ const api_put_machining = (req, res, next) => {
     let data = machining_data(req)
 
     machining_model.findByIdAndUpdate(id, data,{
-        new:true
+        new: true
     }).then( (machining)=>{
         res.send(machining);
+        console.log("päivitetty");
     }).catch(err => {
         res.status(500);
         //lähettää virheen postmanohjelman bodyyn
