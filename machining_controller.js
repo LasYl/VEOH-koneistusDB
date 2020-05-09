@@ -73,8 +73,8 @@ const api_put_machining = (req, res, next) => {
 
     machining_model.findByIdAndUpdate(id, data,{
         new:true
-    }).then( (machining)=>{
-        res.send(machining);
+    }).then( (machinings)=>{
+        res.send(machinings);
     }).catch(err => {
         res.status(500);
         //lähettää virheen postmanohjelman bodyyn
@@ -85,7 +85,7 @@ const api_put_machining = (req, res, next) => {
 };
 
 //DELETE
-
+// DELETE /api/material/5e877016c4bd517bd8ef178a
 const api_delete_machining = (req, res, next) => {
     // haetaan IDksi kyseinen id mongosta
     console.log("poisto alkoi")
@@ -99,12 +99,13 @@ const api_delete_machining = (req, res, next) => {
         //lähettää virheen postmanohjelman bodyyn
         res.send(err.errmsg);
         console.log('virhe poistossa');
-    })
+    });
 
-}
+};
 
 //EXPORTS
 module.exports.api_post_machining = api_post_machining;
 module.exports.api_get_machinings = api_get_machinings;
+//module.exports.api_get_machining = api_get_machining;
 module.exports.api_delete_machining = api_delete_machining;
 module.exports.api_put_machining = api_put_machining;
