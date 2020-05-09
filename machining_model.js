@@ -5,39 +5,32 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema ({
     //sarakkeiden tiedot tietokantaan
-    name: {
+    tool_name: {
         type: String, 
         required: true, 
         index: {
                 unique: true
             }
         },
-    min_density: {
-        type: Number, 
+    material: {
+        type: String, 
         required: true, 
             
         },
-    max_density: {
-        type: Number, 
-        required: true, 
-            
-        },
-
-    max_strength: {
+    cutting_speed: {
         type: Number, 
         required: true, 
             
         },
 
-    max_strength: {
+    feed_rate: {
         type: Number, 
         required: true, 
             
-        },
-
+        }
       
   
 });
 
 // material vain mongoDBtä varten
-module.exports = mongoose.model("material", schema)
+module.exports = mongoose.model("machining", schema)
