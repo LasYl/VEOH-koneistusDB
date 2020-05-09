@@ -73,8 +73,8 @@ const api_put_machining = (req, res, next) => {
 
     machining_model.findByIdAndUpdate(id, data,{
         new:true
-    }).then( (machinings)=>{
-        res.send(machinings);
+    }).then( (machining)=>{
+        res.send(machining);
     }).catch(err => {
         res.status(500);
         //lähettää virheen postmanohjelman bodyyn
@@ -88,7 +88,7 @@ const api_put_machining = (req, res, next) => {
 // DELETE /api/material/5e877016c4bd517bd8ef178a
 const api_delete_machining = (req, res, next) => {
     // haetaan IDksi kyseinen id mongosta
-    console.log("poisto alkoi")
+    console.log("poisto alkoi");
     let id = req.params.id;
     machining_model.findByIdAndRemove(id).then(()=>{
         res.send();

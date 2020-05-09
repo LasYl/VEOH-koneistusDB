@@ -44,11 +44,11 @@ app.get("/api/machining-parameter-sets", machining_controller.api_get_machinings
 //UPDATE
 //app.PUT korvaa täysin olemassa olevat tiedot, eli kaikki tiedot pitää antaa
 //app.PATCH korvaisi tietyt tiedot
-app.put("/api/machining-parameter-set:id", machining_controller.api_put_machining)
+app.put("/api/machining-parameter-set/:id", machining_controller.api_put_machining)
 
 
 //DELETE
-app.delete("/api/machining-parameter-set:id", machining_controller.api_delete_machining)//Poisto mongosta
+app.delete("/api/machining-parameter-set/:id", machining_controller.api_delete_machining)//Poisto mongosta
 
 //Vaihdetaan vain databasen
 //const database_url = "mongodb+srv://server:YoPkSBnxekTpsCE3@cluster0-fanmv.mongodb.net/koneistusdb?retryWrites=true&w=majority"
