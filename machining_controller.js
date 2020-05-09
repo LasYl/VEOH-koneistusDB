@@ -103,7 +103,7 @@ const api_delete_machining = (req, res, next) => {
 }
 
 //EXPORTS
-module.exports.api_post_machiningl = api_post_machining;
+module.exports.api_post_machining = api_post_machining;
 module.exports.api_get_machinings = api_get_machinings;
 module.exports.api_delete_machining = api_delete_machining;
 module.exports.api_put_machining = api_put_machining;
