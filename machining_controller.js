@@ -59,10 +59,28 @@ const api_get_machinings = (req, res, next) => {
         res.status(500);
         //lähettää virheen postmanohjelman bodyyn
         res.send(err.errmsg);
-        console.log('virhe tallennuksessa');
+        console.log('virhe haussa');
 
     });
   }; 
+
+  // yksittäiset tiedot
+const api_get_machining = (req, res, next) => {
+    let id = req.params.id;
+    // Apufunktiolla kutsutaan jo luotuHELPERSIIN  data
+    machining_model.find({id})
+    .lean()
+    .then(machinings => {
+    //palautetaan tmaterials, että nähdään sen tulevan oikealle käsittelijälle
+    res.send(JSON.stringify(machinings));  
+    }).catch(err => {
+        res.status(500);
+        //lähettää virheen postmanohjelman bodyyn
+        res.send(err.errmsg);
+        console.log('virhe haussa');
+
+    });
+  };  
 
 //UPDATE
 const api_put_machining = (req, res, next) => {
@@ -107,6 +125,6 @@ const api_delete_machining = (req, res, next) => {
 //EXPORTS
 module.exports.api_post_machining = api_post_machining;
 module.exports.api_get_machinings = api_get_machinings;
-//module.exports.api_get_machining = api_get_machining;
+module.exports.api_get_machining = api_get_machining;
 module.exports.api_delete_machining = api_delete_machining;
 module.exports.api_put_machining = api_put_machining;

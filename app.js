@@ -39,7 +39,7 @@ app.post("/api/machining-parameter-set", machining_controller.api_post_machining
 //Palauttaa materiaalit datana kun api välissä, palauttaa näkymänä kun api pois (app.get("/materials"))
 app.get("/api/machining-parameter-sets", machining_controller.api_get_machinings)//ohjataan polku funktiolle api.get_materials
 //Palauttaa yksittäisen id:n tiedot
-//app.get("/api/machining-parameter-set:id", machining_controller.api_get_machining)
+app.get("/api/machining-parameter-set/:id", machining_controller.api_get_machining)
 
 //UPDATE
 //app.PUT korvaa täysin olemassa olevat tiedot, eli kaikki tiedot pitää antaa
