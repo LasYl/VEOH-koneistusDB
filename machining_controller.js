@@ -7,6 +7,7 @@ const machining_model = require('./machining_model')
 const machining_data = (req) => {
     //data talteen, määritetään luotavat arvot
     let data = {
+        
         tool_name: req.body.tool_name,
         material: req.body.material,
         cutting_speed: req.body.cutting_speed,
@@ -66,13 +67,15 @@ const api_get_machinings = (req, res, next) => {
 
   // yksittäiset tiedot
 const api_get_machining = (req, res, next) => {
+    console.log('yksittäisen haku käynnissä')
     let id = req.params.id;
     // Apufunktiolla kutsutaan jo luotuHELPERSIIN  data
-    machining_model.find({id})
-    .lean()
-    .then(machinings => {
+    machining_model.findById(id)
+        
+        .then(machining => {
     //palautetaan tmaterials, että nähdään sen tulevan oikealle käsittelijälle
-    res.send(JSON.stringify(machinings));  
+        res.send(JSON.stringify(machining)); 
+        console.log('haku valmis') 
     }).catch(err => {
         res.status(500);
         //lähettää virheen postmanohjelman bodyyn
